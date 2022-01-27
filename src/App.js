@@ -31,6 +31,7 @@ contacts: [
 }
 
 removeContact = (contact) =>{
+  console.log(contact)
 this.setState((currentState) => ({
     contacts: currentState.contacts.filter((c)=>{
       return c.id !== contact.id
