@@ -105,8 +105,8 @@ this.setState((currentState) => ({
        <ListContacts contacts={this.state.contacts}
        onDeleteContact={this.removeContact}
        />
-       <AddTasks addTask={this.addTask}  updateQuery={this.updateQuery}/>
-       <Activity activities={this.state.activities} deleteActivity={this.deleteActivity} />
+       {/* <AddTasks addTask={this.addTask}  updateQuery={this.updateQuery}/>
+       <Activity activities={this.state.activities} deleteActivity={this.deleteActivity} /> */}
       </div>
     )
   }
