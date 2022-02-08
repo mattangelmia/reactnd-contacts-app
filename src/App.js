@@ -71,7 +71,11 @@ this.setState((currentState) => ({
       return c.id !== contact.id
     })
 }))
+ContactsAPI.remove(contact)
 }
+
+
+
 
   render() {
     return (
