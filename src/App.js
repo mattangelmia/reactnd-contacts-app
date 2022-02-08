@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react';
 import ListContacts from './ListContacts';
 import Activity from './Activity'
 import AddTasks from './AddTasks';
-
+import * as ContactsAPI from './utils/ContactsAPI'
  
 
 class App extends Component {
@@ -13,45 +13,19 @@ state = {
 
 
 contacts: [
-  {
-    "id": "karen",
-    "name": "Karen Isgrigg",
-    "handle": "karen_isgrigg",
-    "avatarURL": "http://localhost:5001/karen.jpg"
-  },
-  {
-    "id": "richard",
-    "name": "Richard Kalehoff",
-    "handle": "richardkalehoff",
-    "avatarURL": "http://localhost:5001/richard.jpg"
-  },
-  {
-    "id": "tyler",
-    "name": "Tyler McGinnis",
-    "handle": "tylermcginnis",
-    "avatarURL": "http://localhost:5001/tyler.jpg"
-  }
- ],
 
- activities :  [
-  {
-    id: 1,
-    activity: "pool"
-  },
-
-  {
-    id: 2,
-    activity: "games"
-  },
-
-  {
-    id: 3,
-    activity: "sports"
-  }
 ],
 query: ""
 
 
+}
+
+componentDidMount(){
+   ContactsAPI.getAll().then((contacts)=>{
+     this.setState(()=>({
+       contacts
+     }))
+   })
 }
 
 
