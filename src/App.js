@@ -3,7 +3,7 @@ import ListContacts from './ListContacts';
 import Activity from './Activity'
 import AddTasks from './AddTasks';
 import * as ContactsAPI from './utils/ContactsAPI'
- 
+import CreateContact from './CreateContact'; 
 
 class App extends Component {
 
@@ -15,6 +15,10 @@ state = {
 contacts: [
 
 ],
+
+screen: "list",
+
+
 query: ""
 
 
@@ -80,9 +84,22 @@ ContactsAPI.remove(contact)
   render() {
     return (
       <div>
-       <ListContacts contacts={this.state.contacts}
-       onDeleteContact={this.removeContact}
-       />
+        {this.state.screen === 'list' && (
+ <ListContacts contacts={this.state.contacts}
+ onDeleteContact={this.removeContact} onNavigate={()=>{
+   this.setState(()=>({
+     screen: 'create'
+   }))
+ }}
+ />
+
+        )}
+
+        {this.state.screen === 'create' &&(
+    <CreateContact/>
+        )}
+      
+   
        {/* <AddTasks addTask={this.addTask}  updateQuery={this.updateQuery}/>
        <Activity activities={this.state.activities} deleteActivity={this.deleteActivity} /> */}
       </div>
