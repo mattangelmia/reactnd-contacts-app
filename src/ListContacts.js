@@ -72,6 +72,7 @@ const showingContacts = this.state.query === ''
             </li>
         ))}
      </ol>
+     
 
     </div>;
   }
